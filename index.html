@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<style>
+    body {
+        height: 100vh;
+        width: 100%;
+        margin: 0px;
+        padding: 0px;
+        background-color: #000000;
+    }
+
+    .header {
+        position: sticky;
+        top: 20px;
+        z-index: 99;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        animation: show-menue 2s ease-in-out;
+
+    }
+
+    .logo {
+        height: 40px;
+    }
+
+    .menue {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5px;
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid #F0F5F7;
+        border-radius: 10px;
+    }
+
+    .toggle-group {
+        display: inline-flex;
+        border-radius: 6px;
+        overflow: hidden;
+        gap: 25px;
+    }
+
+    .toggle-group input {
+        display: none;
+    }
+
+    .toggle-group label {
+        padding: 8px 16px;
+        cursor: pointer;
+        background: transparent;
+        font-weight: 500;
+        color: #ffffff;
+        border: none;
+        border-radius: 10px;
+        transition: all 0.2s ease;
+    }
+
+    .toggle-group input:checked+label {
+        color: #000000;
+        background: #fff;
+    }
+
+    .toggle-group label:hover {
+        background: #ffffff1A;
+    }
+
+    .actions {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .glow-text {
+        /* font-size: 48px; */
+        position: relative;
+        background: linear-gradient(to right, #42ABED, #1AC4A8);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-decoration: none;
+        padding-bottom: 1px;
+
+    }
+
+    .glow-text-2 {
+        /* font-size: 48px; */
+        font-size: 5rem;
+        position: relative;
+        background: linear-gradient(to right, #42ABED, #1AC4A8);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-decoration: none;
+        font-weight: 700;
+        padding-right: 75px;
+        display: inline-block;
+        letter-spacing: 3px;
+
+    }
+    .glow-text-3 {
+        /* font-size: 48px; */
+        font-size: 5rem;
+        position: relative;
+        background: linear-gradient(to right, #1AC4A8,#E3243D,#EDC454, #42ABED);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-decoration: none;
+        font-weight: 500;
+        display: inline-block;
+        letter-spacing: 3px;
+
+    }
+
+    .glow-text-2::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translate(0%, -50%);
+        background: url(./Assets/red-heart.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: right center;
+        height: 70%;
+        width: auto;
+    }
+
+    .glow-text::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 1px;
+        background: linear-gradient(to right, #42ABED, #1AC4A8);
+    }
+
+    .glow-btn {
+        background: linear-gradient(to bottom, #42ABED, #1AC4A8);
+        border: none;
+        border-radius: 20px;
+        padding: 10px 20px;
+        font-weight: bolder;
+    }
+
+    .page-1 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: url(./Assets/gradient-line.png);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 60vh;
+    }
+
+    .big-logo {
+        width: auto;
+        height: 100%;
+        animation: zoom-logo 3s ease-in-out;
+    }
+
+    .big-main {
+        position: relative;
+        height: 40%;
+        width: 50%;
+        display: flex;
+        align-items: center;
+        margin: 0px 10px;
+        justify-content: center;
+    }
+
+    .big-main::after {
+        content: "";
+        position: absolute;
+        left: -90px;
+        top: 0px;
+        background-image: url(./Assets/wine-bottle.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 90px;
+        width: 90px;
+        animation: go-top 3s ease-in-out;
+    }
+
+    .big-main::before {
+        content: "";
+        position: absolute;
+        right: -10px;
+        bottom: -40px;
+        background-image: url(./Assets/star.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 90px;
+        width: 90px;
+        animation: go-bottom 3s ease-in-out;
+    }
+
+    .fw-normal {
+        font-size: 5rem;
+        font-weight: 100 !important;
+        letter-spacing: 5px;
+    }
+
+    b {
+        font-weight: 600;
+    }
+
+    .img-1 {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .circle-text {
+        position: absolute;
+        left: 50%;
+        top: 99%;
+        transform: translate(-50%, -50%);
+       height: 25%;
+        width: 11%;
+        pointer-events: none;
+        transform: translate(-50%, -50%) rotate(0deg);
+        transition: transform 2s ease-in-out;
+        pointer-events: none;
+
+    }
+
+    .circle-text.rotate {
+        transform: translate(-50%, -50%) rotate(180deg);
+    }
+
+    .img-1::after {
+        content: '';
+        color: white;
+        position: absolute;
+        left: 50%;
+        top: 99%;
+        transform: translate(-50%, -50%);
+        height: 25%;
+        width: 9%;
+        background: url(./Assets/round-logo.png);
+        background-size: cover;
+        /* border-radius: 50%; */
+    }
+
+    @keyframes show-menue {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes zoom-logo {
+        0% {
+            height: 20%;
+        }
+
+        60% {
+            height: 20%;
+        }
+
+        100% {
+            height: 100%;
+        }
+
+    }
+
+    @keyframes go-top {
+        0% {
+            top: 0;
+        }
+
+        40% {
+            top: 100%;
+        }
+
+        /* pause at bottom */
+        60% {
+            top: 100%;
+        }
+
+        100% {
+            top: 0;
+        }
+
+    }
+
+    @keyframes go-bottom {
+        0% {
+            bottom: -40px;
+        }
+
+        40% {
+            bottom: 100%;
+        }
+
+        /* pause at bottom */
+        60% {
+            bottom: 100%;
+        }
+
+        100% {
+            bottom: -40px;
+        }
+
+    }
+
+    @media (max-width:900px) {
+        .big-logo {
+            width: auto;
+            height: 55%;
+            animation: zoom-logo 1.5s ease-in-out;
+        }
+
+        .big-main::after {
+            display: none;
+        }
+
+        .big-main::before {
+            display: none;
+        }
+
+
+        @keyframes zoom-logo {
+            0% {
+                height: 20%;
+            }
+
+            100% {
+                height: 55%;
+            }
+
+        }
+    }
+</style>
+
+<body>
+    <div class="container-fluid  px-2 px-xl-5 py-3">
+        <div class="header d-none d-xl-flex">
+            <div class="logo">
+                <img height="100%" src="/Assets/small-logo.png" alt="">
+            </div>
+            <div class="menue flex-1">
+                <div class="toggle-group">
+                    <input type="radio" id="opt1" name="toggle" checked>
+                    <label for="opt1">Home</label>
+
+                    <input type="radio" id="opt2" name="toggle">
+                    <label for="opt2">About Us</label>
+
+                    <input type="radio" id="opt3" name="toggle">
+                    <label for="opt3">Features</label>
+
+                    <input type="radio" id="opt4" name="toggle">
+                    <label for="opt4">Contact Us</label>
+                </div>
+            </div>
+            <div class="actions">
+                <a href="#" class="glow-text">Business Login</a>
+                <button class="glow-btn">Download App</button>
+            </div>
+
+        </div>
+        <div class="page-1 mt-5">
+            <div class="big-main">
+                <img src="./Assets/big-logo.png" class="big-logo" alt="">
+            </div>
+        </div>
+        <div id="page-2" style="position: relative;">
+            <div class="part-2 d-flex flex-column align-items-center">
+                <h1 class="text-light fw-normal text-center">Don’t just <b>Like</b></h1>
+                <h1 class="glow-text-2  text-center">LIVE</h1>
+            </div>
+            <div id="page-3" class="page-2 mt-4 d-flex flex-column align-items-center">
+                <div class="img-1">
+                    <img src="./Assets/1st-bg.png" width="75%" alt="">
+                    <svg class="circle-text" viewBox="0 0 200 200">
+                        <defs>
+                            <path id="textCircle" d="M 100,100
+                                     m -75,0
+                                     a 75,75 0 1,1 150,0
+                                     a 75,75 0 1,1 -150,0" />
+                        </defs>
+
+                        <text fill="white" font-size="14" font-weight="600" letter-spacing="8">
+                            <textPath href="#textCircle" startOffset="50%" text-anchor="middle">
+                                | Your Science compass. 24/7 | Louca
+                            </textPath>
+                        </text>
+                    </svg>
+                </div>
+                <h5 class="text-light mb-4 text-center"
+                    style="line-height: 1.7; margin-top: 90px; width: 80%; letter-spacing: 2px;">I’m Louca, your
+                    always-ready
+                    wing-mate who gets you off the couch and back into real life. I find the
+                    places, moments and people that match your vibe. From dates to hangouts to spontaneous adventures.
+                    Let’s
+                    skip the swipes, ditch the small talk and make real memories out in the world.❤️</h5>
+
+               <div class="d-flex"><button class="glow-btn">Explore Louca</button><button class="glow-btn" style="border-radius: 50%;"><span class="fs-5">&#8599;</span></button></div> 
+            </div>
+        </div>
+        <div class="page-4 px-3 mt-5">
+            <img src="/Assets/logo-trans.png" style="max-height: 100px;" alt="">
+            <h1 class="text-white fw-normal text-center" style="font-weight: 500 !important;">Find your next <span class="glow-text-3">Place</span>&#128205;</h1>
+            <h5 class="text-light mb-4 text-center mx-auto"
+                    style="line-height: 1.7; margin-top: 90px; letter-spacing: 2px;">Tired of wasting time at the wrong venue? Louca, your 24/7 social compass has got you covered! Louca uses smart technology to match users with bars, cafes, restaurants, and nightclubs that suit their unique vibe—in real time.</h5>
+
+        </div>
+    </div>
+
+    <script>
+        setTimeout(() => {
+            document.getElementById("page-2").scrollIntoView({
+                behavior: "smooth"
+            });
+        }, 3200);
+        setTimeout(() => {
+            document.getElementById("page-3").scrollIntoView({
+                behavior: "smooth"
+            });
+        }, 3700);
+
+        const observer = new IntersectionObserver(
+            ([entry], obs) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("rotate");
+                    obs.unobserve(entry.target); // rotate only once
+                }
+            },
+            { threshold: 0.5 }
+        );
+
+        document.querySelectorAll(".circle-text").forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+
+</html>
