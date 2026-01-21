@@ -512,15 +512,27 @@
         margin-top: 100px;
     }
 
+    .max-width {
+        max-width: 250px;
+    }
+
     @media (max-width:900px) {
-        .header{
-            top:3%;
+        .header {
+            top: 3%;
         }
+
         .fw-normal,
         .glow-text-2 {
             font-size: 2.5rem;
             margin-bottom: 0px;
+        }
 
+        .toggle-group {
+            gap: 10px;
+        }
+
+        .max-width {
+            max-width: 100px;
         }
 
         .glow-text-2 {
@@ -594,6 +606,10 @@
             margin-top: 0px;
         }
 
+        .page-9 {
+            overflow: hidden;
+        }
+
         .carousel-container {
             margin-top: 0px;
             position: relative;
@@ -606,6 +622,9 @@
 
         .s-icon {
             height: 24px !important;
+        }
+        .top{
+            top:-7%;
         }
 
         @keyframes zoom-logo {
@@ -710,8 +729,8 @@
 
             <div class="d-flex" style="position: relative;"><button class="glow-btn fw-medium px-lg-4 px-3 py-2 py-lg-3"
                     style="border-radius: 30px;">Explore Louca</button><button
-                    class="glow-btn px-3 px-lg-4 py-lg-3 py-2"
-                    style="border-radius: 50px; position: absolute; top: 0%; left: 85%;"><span
+                    class="glow-btn px-3 top px-lg-4 py-lg-3 py-2"
+                    style="border-radius: 50px; position: absolute;  left: 85%;"><span
                         class="fw-medium">&#8599;</span></button></div>
         </div>
         <div class="page-4 px-3 mt-5">
@@ -890,7 +909,7 @@
         <div class="page-9 w-100">
             <div class="d-flex align-items-center justify-content-between">
                 <img src="./Assets/left-phone.png" data-aos="fade-right" width="30%" style="max-width: 250px;" alt="">
-                <div width="30%" style="max-width: 250px;" >
+                <div width="30%" class="max-width">
                     <img src="./Assets/qr.png" data-aos="zoom-in" width="100%" alt="">
                     <p class="text-center mt-3 fw-small">Just Scan the QR to Get Started.</p>
                 </div>
