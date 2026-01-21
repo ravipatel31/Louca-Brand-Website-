@@ -9,19 +9,26 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
-    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="icon" href="./Assets/favicon.png">
+    <title>Louca</title>
 </head>
+
 <style>
+    :root {
+        --primary-black: #272727;
+        --primary-light-black: #2727271A;
+        --primary-white: #ffffff;
+    }
+
     body {
-        height: 100vh;
-        width: 100%;
-        margin: 0px;
-        padding: 0px;
-        background-color: #000000;
+        padding: 0;
+        margin: 0;
+        background-color: #F0F5F7;
     }
 
     .header {
-        position: sticky;
+        position: sticky !important;
         top: 20px;
         z-index: 99;
         display: flex;
@@ -40,10 +47,9 @@
         align-items: center;
         justify-content: space-between;
         padding: 5px;
-        background: rgba(255, 255, 255, 0.2);
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
-        border: 1px solid #F0F5F7;
+        border: 1px solid #363636;
         border-radius: 10px;
     }
 
@@ -63,19 +69,19 @@
         cursor: pointer;
         background: transparent;
         font-weight: 500;
-        color: #ffffff;
+        color: var(--primary-black);
         border: none;
         border-radius: 10px;
         transition: all 0.2s ease;
     }
 
     .toggle-group input:checked+label {
-        color: #000000;
-        background: #fff;
+        color: var(--primary-white);
+        background: var(--primary-black);
     }
 
     .toggle-group label:hover {
-        background: #ffffff1A;
+        background: var(--primary-light-black);
     }
 
     .actions {
@@ -95,48 +101,6 @@
 
     }
 
-    .glow-text-2 {
-        /* font-size: 48px; */
-        font-size: 5rem;
-        position: relative;
-        background: linear-gradient(to right, #42ABED, #1AC4A8);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        text-decoration: none;
-        font-weight: 700;
-        padding-right: 75px;
-        display: inline-block;
-        letter-spacing: 3px;
-
-    }
-    .glow-text-3 {
-        /* font-size: 48px; */
-        font-size: 5rem;
-        position: relative;
-        background: linear-gradient(to right, #1AC4A8,#E3243D,#EDC454, #42ABED);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        text-decoration: none;
-        font-weight: 500;
-        display: inline-block;
-        letter-spacing: 3px;
-
-    }
-
-    .glow-text-2::after {
-        content: "";
-        position: absolute;
-        right: 0;
-        top: 50%;
-        transform: translate(0%, -50%);
-        background: url(./Assets/red-heart.png);
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-position: right center;
-        height: 70%;
-        width: auto;
-    }
-
     .glow-text::after {
         content: "";
         position: absolute;
@@ -148,9 +112,11 @@
     }
 
     .glow-btn {
+        position: relative;
         background: linear-gradient(to bottom, #42ABED, #1AC4A8);
         border: none;
-        border-radius: 20px;
+        color: var(--primary-white);
+        border-radius: 10px;
         padding: 10px 20px;
         font-weight: bolder;
     }
@@ -159,103 +125,46 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background: url(./Assets/gradient-line.png);
+        /* background: url(./Assets/gradient-line.png); */
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
         width: 100%;
         height: 60vh;
+        position: relative;
+    }
+
+    .wave-container {
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        height: 100%;
+        width: 100%;
+    }
+
+    .wave-container svg {
+        height: 100%;
+        width: 100%;
     }
 
     .big-logo {
         width: auto;
+        margin: auto;
         height: 100%;
-        animation: zoom-logo 3s ease-in-out;
+        animation: zoom-logo 2s ease-in-out;
     }
 
     .big-main {
         position: relative;
-        height: 40%;
+        height: 30%;
         width: 50%;
         display: flex;
         align-items: center;
         margin: 0px 10px;
         justify-content: center;
-    }
-
-    .big-main::after {
-        content: "";
-        position: absolute;
-        left: -90px;
-        top: 0px;
-        background-image: url(./Assets/wine-bottle.png);
-        background-repeat: no-repeat;
-        background-size: cover;
-        height: 90px;
-        width: 90px;
-        animation: go-top 3s ease-in-out;
-    }
-
-    .big-main::before {
-        content: "";
-        position: absolute;
-        right: -10px;
-        bottom: -40px;
-        background-image: url(./Assets/star.png);
-        background-repeat: no-repeat;
-        background-size: cover;
-        height: 90px;
-        width: 90px;
-        animation: go-bottom 3s ease-in-out;
-    }
-
-    .fw-normal {
-        font-size: 5rem;
-        font-weight: 100 !important;
-        letter-spacing: 5px;
-    }
-
-    b {
-        font-weight: 600;
-    }
-
-    .img-1 {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .circle-text {
-        position: absolute;
-        left: 50%;
-        top: 99%;
-        transform: translate(-50%, -50%);
-       height: 25%;
-        width: 11%;
-        pointer-events: none;
-        transform: translate(-50%, -50%) rotate(0deg);
-        transition: transform 2s ease-in-out;
-        pointer-events: none;
-
-    }
-
-    .circle-text.rotate {
-        transform: translate(-50%, -50%) rotate(180deg);
-    }
-
-    .img-1::after {
-        content: '';
-        color: white;
-        position: absolute;
-        left: 50%;
-        top: 99%;
-        transform: translate(-50%, -50%);
-        height: 25%;
-        width: 9%;
-        background: url(./Assets/round-logo.png);
-        background-size: cover;
-        /* border-radius: 50%; */
+        transition: transform 1s ease-out, opacity 1s ease-out;
+        transform: translateY(0px);
+        opacity: 1;
     }
 
     @keyframes show-menue {
@@ -283,69 +192,433 @@
 
     }
 
-    @keyframes go-top {
-        0% {
-            top: 0;
-        }
-
-        40% {
-            top: 100%;
-        }
-
-        /* pause at bottom */
-        60% {
-            top: 100%;
-        }
-
-        100% {
-            top: 0;
-        }
+    .glow-text-2 {
+        /* font-size: 48px; */
+        font-size: 5rem;
+        position: relative;
+        background: linear-gradient(to right, #42ABED, #1AC4A8);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-decoration: none;
+        font-weight: 700;
+        padding-right: 75px;
+        display: inline-block;
+        letter-spacing: 3px;
 
     }
 
-    @keyframes go-bottom {
-        0% {
-            bottom: -40px;
+    .glow-text-2::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translate(0%, -50%);
+        background: url(./Assets/red-heart.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: right center;
+        height: 70%;
+        width: 30%;
+    }
+
+    .fw-normal {
+        font-size: 5rem;
+        font-weight: 100 !important;
+        letter-spacing: 5px;
+    }
+
+    .img-1 {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .circle-text {
+        position: absolute;
+        left: 50%;
+        top: 99%;
+        transform: translate(-50%, -50%);
+        height: 25%;
+        width: 11%;
+        pointer-events: none;
+        transform: translate(-50%, -50%) rotate(0deg);
+        transition: transform 2s ease-in-out;
+        pointer-events: none;
+
+    }
+
+    .circle-text.rotate {
+        transform: translate(-50%, -50%) rotate(180deg);
+    }
+
+    .circle-text-main-2 {
+        height: 30%;
+        width: 13%;
+    }
+
+    .circle-text2 {
+        height: 100%;
+        width: 100%;
+        pointer-events: none;
+        transform: rotate(0deg);
+        transition: transform 2s ease-in-out;
+        pointer-events: none;
+
+    }
+
+    .circle-text2.rotate {
+        transform: rotate(180deg);
+    }
+
+    .img-1::after {
+        content: '';
+        color: white;
+        position: absolute;
+        left: 50%;
+        top: 99%;
+        transform: translate(-50%, -50%);
+        height: 25%;
+        width: 9%;
+        background: url(./Assets/round-logo.png);
+        background-size: cover;
+        /* border-radius: 50%; */
+    }
+
+    .flip-image {
+        opacity: 0;
+        width: 75%;
+        transform: perspective(800px) rotateX(90deg);
+        transition: opacity 0.3s ease;
+    }
+
+    .flip-image.animate {
+        animation: flip-image 2s ease-in-out forwards;
+        opacity: 1;
+    }
+
+    @keyframes flip-image {
+        from {
+            transform: perspective(800px) rotateX(90deg);
         }
 
-        40% {
-            bottom: 100%;
+        to {
+            transform: perspective(800px) rotateX(0deg);
+        }
+    }
+
+    /* .blank-phone{
+        max-height: 635px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-43%, -50%) rotate(-2deg);
+    } */
+    .blank-phone {
+        max-height: 580px;
+        position: absolute;
+        top: 50%;
+        left: 45%;
+        /* START FROM BOTTOM */
+        transform: translate(-43%, 0%) rotate(-2deg);
+        opacity: 0;
+    }
+
+    /* WHEN IMAGE ENTERS VIEWPORT */
+    .blank-phone.animate {
+        animation: phone-up 1.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    /* KEYFRAMES */
+    @keyframes phone-up {
+        from {
+            transform: translate(-43%, 0%) rotate(-2deg);
+            opacity: 0;
         }
 
-        /* pause at bottom */
-        60% {
-            bottom: 100%;
+        to {
+            transform: translate(-43%, -50%) rotate(-2deg);
+            opacity: 1;
         }
+    }
 
-        100% {
-            bottom: -40px;
-        }
+    .slider-card {
+        /* width: 50%; */
+        padding: 50px;
+        border-radius: 30px;
+        background: #f7fbfc;
+        border: 3px solid #20c997;
+        overflow: hidden;
+        position: relative;
+    }
 
+    .slider-track {
+        display: flex;
+        width: 300%;
+        transition: transform 0.6s ease-in-out;
+    }
+
+    .slide {
+        width: 100%;
+        flex-shrink: 0;
+    }
+
+    h1 {
+        font-size: 3rem;
+        color: #3aa7ff;
+        margin-bottom: 20px;
+    }
+
+    h1 span {
+        color: #20c997;
+    }
+
+    ul {
+        padding-left: 20px;
+    }
+
+    li {
+        margin-bottom: 12px;
+        font-size: 20px;
+    }
+
+    .footer li {
+        font-size: 16px;
+    }
+
+    .indicators {
+        display: flex;
+        gap: 10px;
+        margin-top: 20px;
+    }
+
+    .dot {
+        width: 35px;
+        height: 4px;
+        background: #d3d3d3;
+        border-radius: 10px;
+    }
+
+    .dot.active {
+        background: #20c997;
+        width: 70px;
+        transition: .3s all;
+    }
+
+    .carousel-container {
+        position: relative;
+        width: 100%;
+        max-width: 1440px;
+        height: 600px;
+        display: flex;
+        margin-top: 200px;
+        justify-content: center;
+        align-items: center;
+        perspective: 1000px;
+    }
+
+    .card {
+        position: absolute;
+        width: 30%;
+        padding: 10px;
+        height: 600px;
+        border-radius: 30px;
+        background: linear-gradient(to right, #42ABED, #1AC4A8);
+        overflow: hidden !important;
+        /* box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2); */
+        transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        cursor: pointer;
+    }
+
+    .card-image {
+        /* width: 100%; */
+        height: 100%;
+        border-radius: 30px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+
+    .card:hover .card-image {
+        transform: scale(1.05);
+    }
+
+    .card-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 100%);
+        padding: 30px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        display: none;
+    }
+
+    .card-left {
+        transform: translateX(-280px) translateY(-30px) rotateY(45deg) scale(0.8);
+        z-index: 1;
+        opacity: 0.6;
+        /* border: 10px solid #80deea; */
+    }
+
+    .card-text {
+        position: absolute;
+        bottom: 10px;
+        left: 0;
+        right: 0;
+        opacity: 0;
+        transform: translateY(15px);
+        transition: opacity 1s ease, transform 1s ease;
+        pointer-events: none;
+    }
+
+    .card-center .card-text {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .card-center .card-image {
+        height: 80%;
+        transition: .3s all;
+    }
+
+    .card-center {
+        transform: translateX(0) translateY(-50px) rotateY(0deg) rotateZ(0deg) scale(1);
+        z-index: 3;
+        opacity: 1;
+        /* border: 10px solid #26c6da; */
+    }
+
+    .card-right {
+        transform: translateX(280px) translateY(-30px) rotateY(-45deg) scale(0.8);
+        z-index: 1;
+        opacity: 0.6;
+        /* border: 10px solid #80deea; */
+    }
+
+    .footer {
+        padding: 3px;
+        background: linear-gradient(#42ABED, #1AC4A8);
+        border-radius: 20px;
+        overflow: hidden;
+    }
+
+    .last-part {
+        background: linear-gradient(to right, #42ABED, #1AC4A8);
+        border-radius: 20px;
+    }
+
+    .page-8 {
+        margin-top: 100px;
     }
 
     @media (max-width:900px) {
+        .header{
+            top:3%;
+        }
+        .fw-normal,
+        .glow-text-2 {
+            font-size: 2.5rem;
+            margin-bottom: 0px;
+
+        }
+
+        .glow-text-2 {
+            padding-right: 40px;
+        }
+
+        .glow-text-2::after {
+            width: 25%;
+        }
+
+        .flip-image {
+            width: 100%;
+        }
+
+        .fw-medium {
+            font-size: clamp(12px, 1.2vw, 16px);
+        }
+
+        .fw-small {
+            font-size: clamp(10px, 1vw, 14px) !important;
+        }
+
+        .fw-small svg {
+            height: 14px;
+            width: 14px;
+        }
+
         .big-logo {
             width: auto;
-            height: 55%;
-            animation: zoom-logo 1.5s ease-in-out;
+            margin: 0 auto;
+            height: 60%;
         }
 
-        .big-main::after {
-            display: none;
+        .wave-container {
+            display: flex;
+            align-items: center;
         }
 
-        .big-main::before {
-            display: none;
+        .img-1::after {
+            height: 25%;
+            width: 12%;
+            /* border-radius: 50%; */
         }
 
+        .circle-text-main-2 {
+            width: 40%;
+        }
+
+        .blank-phone {
+            max-height: 380px;
+            left: 45%;
+        }
+
+        .heading-text {
+            font-size: 24px;
+        }
+
+        .slider-card {
+            padding: 20px;
+        }
+
+        .card {
+            position: absolute;
+            width: 100%;
+            top: 10% !important;
+            padding: 10px;
+            height: 500px;
+        }
+
+        .page-8 {
+            margin-top: 0px;
+        }
+
+        .carousel-container {
+            margin-top: 0px;
+            position: relative;
+            height: 500px;
+            align-items: start !important;
+            width: 100%;
+            margin-bottom: 50px;
+            overflow: hidden;
+        }
+
+        .s-icon {
+            height: 24px !important;
+        }
 
         @keyframes zoom-logo {
             0% {
                 height: 20%;
             }
 
+            60% {
+                height: 20%;
+            }
+
             100% {
-                height: 55%;
+                height: 60%;
             }
 
         }
@@ -353,105 +626,511 @@
 </style>
 
 <body>
-    <div class="container-fluid  px-2 px-xl-5 py-3">
-        <div class="header d-none d-xl-flex">
-            <div class="logo">
+    <div class="container-fluid px-2 px-xl-5 py-3">
+        <div class="header">
+            <div class="logo d-none d-lg-flex">
                 <img height="100%" src="/Assets/small-logo.png" alt="">
             </div>
-            <div class="menue flex-1">
+            <div class="menue flex-1" style="position: absolute; left: 50%; transform: translate(-50%, 0%);">
                 <div class="toggle-group">
                     <input type="radio" id="opt1" name="toggle" checked>
-                    <label for="opt1">Home</label>
+                    <label for="opt1" class="fw-medium">Home</label>
 
                     <input type="radio" id="opt2" name="toggle">
-                    <label for="opt2">About Us</label>
+                    <label for="opt2" class="fw-medium" style="white-space: nowrap;">About Us</label>
 
                     <input type="radio" id="opt3" name="toggle">
-                    <label for="opt3">Features</label>
+                    <label for="opt3" class="fw-medium">Features</label>
 
                     <input type="radio" id="opt4" name="toggle">
-                    <label for="opt4">Contact Us</label>
+                    <label for="opt4" class="fw-medium" style="white-space: nowrap;">Contact Us</label>
                 </div>
             </div>
-            <div class="actions">
+            <div class="actions d-none d-lg-flex">
                 <a href="#" class="glow-text">Business Login</a>
                 <button class="glow-btn">Download App</button>
             </div>
 
         </div>
-        <div class="page-1 mt-5">
+        <div class="page-1  mt-5">
+            <div class="wave-container w-100">
+                <svg viewBox="0 0 1450 423" preserveAspectRatio="xMidYMid meet" style="width:100%; height:auto;"
+                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path opacity="0.2" id="animatedPath"
+                        d="M5.00098 226.204L26.5944 232.321C204.476 282.712 395.645 230.832 523.649 97.4309L542.098 78.2042L573.596 40.621C599.321 9.92643 640.632 -2.86674 679.202 7.91724C739.733 24.8415 770.688 91.9681 744.258 148.994L704.466 234.85C671.024 307.008 709.89 391.982 786.349 413.872C834.061 427.531 885.383 412.733 918.497 375.768L1009.03 274.706C1109.61 162.438 1271.27 128.149 1408.76 189.92L1445 206.204"
+                        stroke="url(#paint0_linear_2003_56)" stroke-width="10" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-dasharray="30 30" />
+                    <defs>
+                        <linearGradient id="paint0_linear_2003_56" x1="161.951" y1="140.95" x2="1290.78" y2="140.95"
+                            gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#1AC4A8" />
+                            <stop offset="0.33" stop-color="#E3243D" />
+                            <stop offset="0.67" stop-color="#EDC454" />
+                            <stop offset="1" stop-color="#42ABED" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+
+
+
+            </div>
             <div class="big-main">
                 <img src="./Assets/big-logo.png" class="big-logo" alt="">
             </div>
         </div>
-        <div id="page-2" style="position: relative;">
-            <div class="part-2 d-flex flex-column align-items-center">
-                <h1 class="text-light fw-normal text-center">Don’t just <b>Like</b></h1>
-                <h1 class="glow-text-2  text-center">LIVE</h1>
-            </div>
-            <div id="page-3" class="page-2 mt-4 d-flex flex-column align-items-center">
-                <div class="img-1">
-                    <img src="./Assets/1st-bg.png" width="75%" alt="">
-                    <svg class="circle-text" viewBox="0 0 200 200">
-                        <defs>
-                            <path id="textCircle" d="M 100,100
+        <div class="part-2 d-flex flex-column align-items-center">
+            <h1 class="fw-normal text-center">Don’t just <b>Like</b></h1>
+            <h1 class="glow-text-2  text-center">LIVE</h1>
+        </div>
+        <div class="page-3 w-100 mt-4 d-flex flex-column align-items-center">
+            <div class="img-1">
+                <img src="./Assets/1st-bg.png" class="flip-image" alt="">
+                <svg class="circle-text" viewBox="0 0 200 200">
+                    <defs>
+                        <path id="textCircle" d="M 100,100
                                      m -75,0
                                      a 75,75 0 1,1 150,0
                                      a 75,75 0 1,1 -150,0" />
-                        </defs>
+                    </defs>
 
-                        <text fill="white" font-size="14" font-weight="600" letter-spacing="8">
-                            <textPath href="#textCircle" startOffset="50%" text-anchor="middle">
-                                | Your Science compass. 24/7 | Louca
-                            </textPath>
-                        </text>
-                    </svg>
-                </div>
-                <h5 class="text-light mb-4 text-center"
-                    style="line-height: 1.7; margin-top: 90px; width: 80%; letter-spacing: 2px;">I’m Louca, your
-                    always-ready
-                    wing-mate who gets you off the couch and back into real life. I find the
-                    places, moments and people that match your vibe. From dates to hangouts to spontaneous adventures.
-                    Let’s
-                    skip the swipes, ditch the small talk and make real memories out in the world.❤️</h5>
-
-               <div class="d-flex"><button class="glow-btn">Explore Louca</button><button class="glow-btn" style="border-radius: 50%;"><span class="fs-5">&#8599;</span></button></div> 
+                    <text fill="black" font-size="14" font-weight="600" letter-spacing="6">
+                        <textPath href="#textCircle" startOffset="50%" text-anchor="middle">
+                            | Your Science compass. 24/7 | Louca
+                        </textPath>
+                    </text>
+                </svg>
             </div>
+            <h5 class="text-dark mb-4 mt-4 mt-lg-5 pt-0 pt-lg-5  w-100 w-lg-75 text-center fw-medium" data-aos="zoom-in"
+                style="line-height: 1.7;  letter-spacing: 2px;">I’m Louca, your
+                always-ready
+                wing-mate who gets you off the couch and back into real life. I find the
+                places, moments and people that match your vibe. From dates to hangouts to spontaneous adventures.
+                Let’s
+                skip the swipes, ditch the small talk and make real memories out in the world.❤️</h5>
+
+            <div class="d-flex" style="position: relative;"><button class="glow-btn fw-medium px-lg-4 px-3 py-2 py-lg-3"
+                    style="border-radius: 30px;">Explore Louca</button><button
+                    class="glow-btn px-3 px-lg-4 py-lg-3 py-2"
+                    style="border-radius: 50px; position: absolute; top: 0%; left: 85%;"><span
+                        class="fw-medium">&#8599;</span></button></div>
         </div>
         <div class="page-4 px-3 mt-5">
-            <img src="/Assets/logo-trans.png" style="max-height: 100px;" alt="">
-            <h1 class="text-white fw-normal text-center" style="font-weight: 500 !important;">Find your next <span class="glow-text-3">Place</span>&#128205;</h1>
-            <h5 class="text-light mb-4 text-center mx-auto"
-                    style="line-height: 1.7; margin-top: 90px; letter-spacing: 2px;">Tired of wasting time at the wrong venue? Louca, your 24/7 social compass has got you covered! Louca uses smart technology to match users with bars, cafes, restaurants, and nightclubs that suit their unique vibe—in real time.</h5>
+            <img src="/Assets/midium-logo.png" data-aos="zoom-in" style="max-height: 100px; max-width: 100%;"
+                class="l-logo" alt="">
+            <h1 class="fw-normal mb-0  mt-3  mt-lg-0 text-center" data-aos="fade-up"
+                style="font-weight: 500 !important;">
+                Find your next <span class="glow-text-3">Place</span>&#128205;</h1>
+            <h5 class="mb-4 text-center fw-medium mx-auto w-lg-75 w-100 mt-3 mt-lg-5"
+                style="line-height: 1.7;letter-spacing: 2px;" data-aos="fade-up">Tired of wasting
+                time at the wrong
+                venue? Louca, your 24/7 social compass has got you covered! Louca uses smart technology to match users
+                with bars, cafes, restaurants, and nightclubs that suit their unique vibe—in real time.</h5>
 
+        </div>
+        <div class="page-5">
+            <div class="message px-lg-5 px-3 mx-auto"
+                style="padding-bottom: 250px; background: url(./Assets/message-bg.png); background-size:100% 100%; background-repeat: no-repeat; padding-top: 100px;">
+                <div class="d-flex align-items-center justify-content-between">
+                    <h2 class="fw-normal  mb-0">
+                        <b class="text-white fw-normal"> Message From Louca</b>
+                    </h2>
+                    <div class="circle-text-main-2"
+                        style="background: url(./Assets/white-letter.png) no-repeat; background-size:40%; background-position: center center;">
+
+                        <svg class="circle-text2" viewBox="0 0 200 200">
+                            <defs>
+                                <path id="textCircle" d="M 100,100
+                                     m -75,0
+                                     a 75,75 0 1,1 150,0
+                                     a 75,75 0 1,1 -150,0" />
+                            </defs>
+
+                            <text fill="white" font-size="14" font-weight="600" letter-spacing="6">
+                                <textPath href="#textCircle" startOffset="50%" text-anchor="middle">
+                                    | Your Science compass. 24/7 | Louca
+                                </textPath>
+                            </text>
+                        </svg>
+                    </div>
+                </div>
+                <div class="mt-3 mt-lg-0">
+                    <p class="mb-4 fw-medium text-light" data-aos="fade-up">Hey, I‘m Louca.</p>
+                    <p class="mb-4 fw-medium text-light" data-aos="fade-up">Your 24/7 friend, assistant, and concierge.
+                    </p>
+                    <p class="mb-4 fw-medium text-light" data-aos="fade-up">Let’s be honest. People these days have
+                        become far too
+                        comfy on the couch, scrolling
+                        mindlessly and ordering in. In a world built for convenience, real connection is becoming rare
+                        and
+                        hard to maintain. Technology, for all its disadvantages and erosion of human connection, is not
+                        going anywhere. SO why not use it better?</p>
+                    <p class="mb-4 fw-medium text-light" data-aos="fade-up">
+                        That is where I come in. With Louca, you receive the best of both worlds - instant intelligent
+                        information from your phone, combined with real-life life authentic experiences. Whether you are
+                        going out with a partner, catching up with friends, spending time with family or simply enjoying
+                        your own company, I am here for the date nights, the karaoke catch-ups ️, the spontaneous day
+                        trips
+                        and the “let us just go somewhere new” moments. I will find the places you will love, whether
+                        you
+                        are in the mood for candlelit corners, trivia nights, live music or late-night eats.
+                    </p>
+                    <p class="text-light fw-medium" data-aos="fade-up">
+                        Now, if you are single, do not worry, I have got your back. As your wingman, its my
+                        responsibility
+                        to keep you safe. With Louca, you skip the waiting for a response and deceptive profile
+                        pictures,
+                        but swipe right on real life. Just real people, right in front of you. Whatever your vibe may
+                        be,
+                        whether romantic, adventurous, low key or simply curious, I am your map and your go-to. Outside
+                        is
+                        where it happens. Sign up today….etc.etc
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="page-6 mt-5 pt-5">
+            <div class="d-flex align-items-center  justify-content-center">
+                <div style="position:relative; overflow: hidden; padding-top: 4%;">
+                    <img src="./Assets/round-circle.png" class="mt-5" style="max-height: 520px; max-width: 90%;" alt="">
+                    <img src="./Assets/blank-phone.png" class="blank-phone" alt="">
+
+                </div>
+            </div>
+            <h5 class="text-center mx-auto fw-medium w-lg-75 w-100 my-5"
+                style="line-height: 1.7; margin-top: 40px;  letter-spacing: 2px;" data-aos="fade-up">Good times don’t
+                happen at home. Whether it’s a sunrise coffee, a long lunch, an art
+                show, or a night that ends with one more drink, one more questionable choice, Louca helps you find the
+                perfect place and the people worth staying out for.</h5>
+
+        </div>
+        <div class="page-7 mb-5">
+            <div class="d-flex justify-content-between" style="width: 100%; gap: 120px;">
+                <div class="slider-card flex-1 d-flex flex-column justify-content-between">
+                    <div class="slider-track">
+                        <div class="slide">
+                            <h1 class="fw-medium heading-text">See What’s<br><span>Happening Anytime</span></h1>
+                            <ul>
+                                <li class="fw-medium">Live, interactive map with real-time crowd insights.</li>
+                                <li class="fw-medium">Search nearby or anywhere in the world.</li>
+                                <li class="fw-medium">Filter by vibe, activity type, time & location.</li>
+                            </ul>
+                        </div>
+
+                        <div class="slide">
+                            <h1 class="fw-medium heading-text">Discover<br><span>Popular Places</span></h1>
+                            <ul>
+                                <li class="fw-medium">Trending locations around you.</li>
+                                <li class="fw-medium">Photos, reviews & atmosphere.</li>
+                                <li class="fw-medium">Know before you go.</li>
+                            </ul>
+                        </div>
+
+                        <div class="slide">
+                            <h1 class="fw-medium heading-text">Plan<br><span>Your Time Better</span></h1>
+                            <ul>
+                                <li class="fw-medium">Best time to visit spots.</li>
+                                <li class="fw-medium">Live crowd updates.</li>
+                                <li class="fw-medium">Smart recommendations.</li>
+                            </ul>
+                        </div>
+
+                        <!-- CLONE OF FIRST SLIDE -->
+                        <div class="slide clone">
+                            <h1 class="fw-medium heading-text">See What’s<br><span>Happening Anytime</span></h1>
+                            <ul>
+                                <li class="fw-medium">Live, interactive map with real-time crowd insights.</li>
+                                <li class="fw-medium">Search nearby or anywhere in the world.</li>
+                                <li class="fw-medium">Filter by vibe, activity type, time & location.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="indicators">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                </div>
+                <!-- <img src="./Assets/full-blank-phone.png" style="max-height: 500px;" alt=""> -->
+            </div>
+
+
+        </div>
+        <div class="page-8">
+            <div class="carousel-container mx-auto">
+                <div class="card card-left" data-position="left">
+                    <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=400&h=500&fit=crop"
+                        alt="Person 1" class="card-image">
+                    <h4 class="text-center text-light card-text p-2">Lorem ipsum dolor sit amet dolor sit amet.</h4>
+
+                </div>
+
+                <div class="card card-center" data-position="center">
+                    <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?w=400&h=500&fit=crop"
+                        alt="Person 2" class="card-image">
+                    <h4 class="text-center text-light card-text p-2">Lorem ipsum dolor sit amet dolor sit amet.</h4>
+                </div>
+
+                <div class="card card-right" data-position="right">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop"
+                        alt="Person 3" class="card-image">
+                    <h4 class="text-center text-light card-text p-2">Lorem ipsum dolor sit amet dolor sit amet.</h4>
+
+                </div>
+
+                <div class="text-overlay">
+                    <h2 id="dynamicText"></h2>
+                </div>
+            </div>
+
+
+        </div>
+        <h1 class="text-center mb-4 mb-lg-0 my-lg-5  fw-normal text-dark" data-aos="fade-up"> <b>Download Louca App</b>
+        </h1>
+        <div class="page-9 w-100">
+            <div class="d-flex align-items-center justify-content-between">
+                <img src="./Assets/left-phone.png" data-aos="fade-right" width="30%" style="max-width: 250px;" alt="">
+                <div width="30%" style="max-width: 250px;" >
+                    <img src="./Assets/qr.png" data-aos="zoom-in" width="100%" alt="">
+                    <p class="text-center mt-3 fw-small">Just Scan the QR to Get Started.</p>
+                </div>
+                <img src="./Assets/right-phone.png" data-aos="fade-left" width="30%" style="max-width: 250px;" alt="">
+            </div>
+        </div>
+        <div class="footer mt-5">
+            <div class="content p-4" style="border-radius: 20px;background-color: #F0F5F7;">
+                <div class="d-flex flex-column flex-lg-row align-items-stertch justify-content-between">
+                    <div class="left d-flex flex-column justify-content-between">
+                        <div class="logo">
+                            <img src="./Assets/small-logo.png" style="min-width: 150px; max-width: 150px;" alt="">
+                        </div>
+                        <h6 class="w-lg-50 w-100 fw-medium mt-3 mt-lg-0">Lorem ipsum dolor sit amet, consectetur adipi
+                            scing elit. Lorem ipsum dolor sit
+                            amet,
+                            consecte adipi scing elit.</h6>
+                    </div>
+                    <div class="center">
+                        <h5 class="fw-medium fw-bolder">Important Links</h5>
+                        <ul>
+                            <li class="fw-small">Home</li>
+                            <li class="fw-small">About</li>
+                            <li class="fw-small">Feature</li>
+                            <li class="fw-small">Contact Us</li>
+                        </ul>
+                    </div>
+                    <div class="right">
+                        <h5 class="fw-medium">Contact Details</h5>
+                        <p class="fw-small"><span>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M0 6.24555C0 13.8832 10.1284 24 17.7572 24C19.4269 24 20.9866 23.3702 22.1364 22.2206L23.1363 21.0709C24.2961 19.9113 24.2961 17.9519 23.0863 16.7423C23.0563 16.7123 20.6467 14.8629 20.6467 14.8629C19.4469 13.7232 17.5572 13.7232 16.3674 14.8629L14.9076 16.0325C11.7081 14.6729 9.43849 12.3936 7.97872 9.08466L9.13853 7.62512C10.2884 6.43549 10.2884 4.53608 9.13853 3.34645C9.13853 3.34645 7.28883 0.937207 7.25884 0.907217C6.04903 -0.302406 4.08934 -0.302406 2.87954 0.907217L1.82971 1.81693C0.629898 3.00656 0 4.56607 0 6.23555V6.24555Z"
+                                        fill="url(#paint0_linear_4358_198)" />
+                                    <defs>
+                                        <linearGradient id="paint0_linear_4358_198" x1="24" y1="0" x2="-0.830402"
+                                            y2="0.891218" gradientUnits="userSpaceOnUse">
+                                            <stop stop-color="#42ABED" />
+                                            <stop offset="1" stop-color="#1AC4A8" />
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+
+                            </span>
+                            +61 1234 567890
+                        </p>
+                        <p class="fw-small"><span>
+                                <svg width="20" height="24" viewBox="0 0 20 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M9.981 0C7.33494 0.00291109 4.79808 1.05528 2.92694 2.92623C1.05579 4.79718 0.00317621 7.33394 0 9.98C0 12.55 1.99 16.572 5.915 21.934C6.38226 22.5741 6.99406 23.0949 7.7006 23.4539C8.40715 23.8129 9.18847 24 9.981 24C10.7735 24 11.5549 23.8129 12.2614 23.4539C12.9679 23.0949 13.5797 22.5741 14.047 21.934C17.972 16.572 19.962 12.55 19.962 9.98C19.9588 7.33394 18.9062 4.79718 17.0351 2.92623C15.1639 1.05528 12.6271 0.00291109 9.981 0ZM9.981 13.958C9.18987 13.958 8.41652 13.7234 7.75872 13.2839C7.10092 12.8444 6.58823 12.2196 6.28548 11.4887C5.98273 10.7578 5.90352 9.95356 6.05786 9.17764C6.2122 8.40172 6.59316 7.68898 7.15257 7.12957C7.71198 6.57016 8.42472 6.1892 9.20064 6.03486C9.97656 5.88052 10.7808 5.95973 11.5117 6.26248C12.2426 6.56523 12.8674 7.07792 13.3069 7.73572C13.7464 8.39352 13.981 9.16688 13.981 9.958C13.981 11.0189 13.5596 12.0363 12.8094 12.7864C12.0593 13.5366 11.0419 13.958 9.981 13.958Z"
+                                        fill="url(#paint0_linear_4358_200)" />
+                                    <defs>
+                                        <linearGradient id="paint0_linear_4358_200" x1="0" y1="0" x2="20.6609"
+                                            y2="0.616796" gradientUnits="userSpaceOnUse">
+                                            <stop stop-color="#42ABED" />
+                                            <stop offset="1" stop-color="#1AC4A8" />
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+
+
+                            </span>
+                            00, Abc Main Street,
+                            Melbourne, VIC - 3207. </p>
+                    </div>
+                </div>
+                <div class="d-flex last-part p-2 px-3 align-items-center justify-content-between mt-3">
+                    <p class="text-white m-0 fw-medium">Email: info@louca.io</p>
+                    <div class="d-flex align-items-center" style="gap: 20px;">
+                        <img src="./Assets/facebook.png" height="44px" class="s-icon" alt="">
+                        <img src="./Assets/twitter.png" height="44px" class="s-icon" alt="">
+                        <img src="./Assets/linkdin.png" height="44px" class="s-icon" alt="">
+                        <img src="./Assets/instagram.png" height="44px" class="s-icon" alt="">
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        setTimeout(() => {
-            document.getElementById("page-2").scrollIntoView({
-                behavior: "smooth"
-            });
-        }, 3200);
-        setTimeout(() => {
-            document.getElementById("page-3").scrollIntoView({
-                behavior: "smooth"
-            });
-        }, 3700);
+        AOS.init({
+            duration: 1500,  // Animation duration
+            once: true,
+            mirror: true
+        });
 
         const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("animate");
+                        observer.unobserve(entry.target); // run only once
+                    }
+                });
+            },
+            {
+                threshold: 0.5
+            }
+        );
+
+        document.querySelectorAll(".flip-image").forEach(img => {
+            observer.observe(img);
+        });
+
+        const observer2 = new IntersectionObserver(
             ([entry], obs) => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add("rotate");
-                    obs.unobserve(entry.target); // rotate only once
+                    // obs.unobserve(entry.target); // rotate only once
                 }
             },
             { threshold: 0.5 }
         );
 
         document.querySelectorAll(".circle-text").forEach(el => {
-            observer.observe(el);
+            observer2.observe(el);
         });
+        const observer3 = new IntersectionObserver(
+            ([entry], obs) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("rotate");
+                    // obs.unobserve(entry.target); // rotate only once
+                }
+            },
+            { threshold: 0.5 }
+        );
+
+        document.querySelectorAll(".circle-text2").forEach(el => {
+            observer2.observe(el);
+        });
+        const observer4 = new IntersectionObserver(
+            ([entry], obs) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("animate");
+                    obs.unobserve(entry.target); // rotate only once
+                }
+            },
+            { threshold: 0.3 }
+        );
+
+        document.querySelectorAll(".blank-phone").forEach(el => {
+            observer4.observe(el);
+        });
+
+
+        const track = document.querySelector(".slider-track");
+        const dots = document.querySelectorAll(".dot");
+
+        let index = 0;
+        const slideCount = dots.length;
+
+        function slideContent() {
+            index++;
+            track.style.transition = "transform 0.7s ease-in-out";
+            track.style.transform = `translateX(-${index * 100}%)`;
+
+            dots.forEach(dot => dot.classList.remove("active"));
+            dots[index % slideCount]?.classList.add("active");
+
+            // When clone is reached → snap back to first slide
+            if (index === slideCount) {
+                setTimeout(() => {
+                    track.style.transition = "none";
+                    track.style.transform = "translateX(0%)";
+                    index = 0;
+                }, 700);
+            }
+        }
+
+        setInterval(slideContent, 3500);
+
+        const cards = document.querySelectorAll('.card');
+
+        let currentIndex = 1;
+        const totalCards = cards.length;
+
+        const images = [
+            'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=400&h=500&fit=crop',
+            'https://images.unsplash.com/photo-1556157382-97eda2d62296?w=400&h=500&fit=crop',
+            'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop',
+            'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=500&fit=crop',
+            'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=500&fit=crop'
+        ];
+
+        function updateCarousel() {
+            cards.forEach((card, index) => {
+                card.classList.remove('card-left', 'card-center', 'card-right');
+
+                const position = (index - currentIndex + totalCards) % totalCards;
+
+                if (position === 0) {
+                    card.classList.add('card-center');
+                    card.dataset.position = 'center';
+                } else if (position === totalCards - 1) {
+                    card.classList.add('card-left');
+                    card.dataset.position = 'left';
+                } else if (position === 1) {
+                    card.classList.add('card-right');
+                    card.dataset.position = 'right';
+                }
+            });
+        }
+
+        function rotateNext() {
+            currentIndex = (currentIndex + 1) % totalCards;
+            updateCarousel();
+        }
+
+        function rotatePrev() {
+            currentIndex = (currentIndex - 1 + totalCards) % totalCards;
+            updateCarousel();
+        }
+
+        // Auto-rotate carousel
+        let autoRotate = setInterval(rotateNext, 3500);
+
+        // Pause auto-rotate on hover
+        document.querySelector('.carousel-container').addEventListener('mouseenter', () => {
+            clearInterval(autoRotate);
+        });
+
+        document.querySelector('.carousel-container').addEventListener('mouseleave', () => {
+            autoRotate = setInterval(rotateNext, 3500);
+        });
+
+        // Click on cards to navigate
+        cards.forEach(card => {
+            card.addEventListener('click', () => {
+                const position = card.dataset.position;
+                if (position === 'left') {
+                    rotatePrev();
+                } else if (position === 'right') {
+                    rotateNext();
+                }
+            });
+        });
+
     </script>
 </body>
 
